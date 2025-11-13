@@ -821,7 +821,7 @@ export class RealtimeInteraction {
                 {
                     type: "input_text",
                     text: `
-                        The user is pointing the position represented in this image:
+                        The user is pointing at the position represented in this image:
                         `
                 },
                 {
