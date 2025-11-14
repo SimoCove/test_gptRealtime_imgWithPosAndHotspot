@@ -512,6 +512,7 @@ export class RealtimeInteraction {
             this.imgDimensions = await getImgDimensions(finalTemplateOutput);
             await this.sendImage(finalTemplateOutput, "template");
             await this.sendImage(finalColorMapOutput, "colorMap");
+            console.log(`Image dimensions: ${this.imgDimensions.x}x${this.imgDimensions.y}`)
 
         } catch (err) {
             console.error("Failed to prepare or send file content:", err);
@@ -733,7 +734,8 @@ export class RealtimeInteraction {
             const currentHotspot = this.getCurrentHotspot();
             const { x: lastX, y: lastY } = this.getLastCoords();
 
-            const positionChanged = this.checkPointedPositionVariation(currentX, currentY, lastX, lastY);
+            //const positionChanged = this.checkPointedPositionVariation(currentX, currentY, lastX, lastY);
+            const positionChanged = true;
 
             if (positionChanged) {
                 this.lastCoords = { lastX: currentX, lastY: currentY };
@@ -832,7 +834,7 @@ export class RealtimeInteraction {
                     type: "input_text",
                     text: `
                         ${!currentHotspot
-                            ? ``
+                            ? `It does not correspond to any known hotspot.`
                             : `It correspond to this hotspot: ${currentHotspot}`
                         }
                         `
