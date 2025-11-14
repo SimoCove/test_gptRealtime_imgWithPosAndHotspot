@@ -1,4 +1,4 @@
-export const camioFileName: string = "Aeroplano";
+export const camioFileName: string = "Islet";
 // Aeroplano
 // Car
 // House_with_rainbow
